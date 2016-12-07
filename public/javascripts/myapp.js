@@ -157,6 +157,7 @@ function scrollToTop(btn, scrollDOM) {
 //     })
 // }
 
+//注意这里字符串的拼接，低版本webkit内核不支持`${}`这种写法
 function getUser() {
     var username = localStorage.getItem('user');
     var str = "";
