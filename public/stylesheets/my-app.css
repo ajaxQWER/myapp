@@ -1,0 +1,119 @@
+.page-content{
+	background-color: 
+}
+.item-after{
+	font-size: 14px;
+}
+/*topic*/
+#comment{
+	box-sizing: border-box;
+	max-height: 50px;
+	min-height: 50px;
+	padding: 3px;
+	max-width: 100%;
+	min-width: 100%;
+	border: none;
+	outline: none;
+	background-color: #ececec;
+	margin-bottom: 0;
+}
+.comment-btn{
+	width: 80px;
+	float: right;
+	text-decoration: none;
+    text-align: center;
+    display: block;
+    background-color: #ea342a;
+    border-radius: 5px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    padding: 2px 10px;
+    margin: 0;
+    line-height: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #ffffff!important;
+    font-family: inherit;
+    cursor: pointer;
+    outline: 0;
+}
+.a-replay,
+.a-ups{
+	display: inline-block;
+	margin-left: 5px;
+}
+.list-content{
+	padding: 10px 0;
+	overflow: hidden;
+}
+.list-info{
+	vertical-align: middle;
+	margin: 5px 0;
+}
+.author-img{
+	vertical-align: middle;
+}
+.author-info{
+	vertical-align: middle;
+	display: inline-block;
+}
+.user-action{
+	display: inline-block;
+	float: right;
+}
+.replay-content{
+	font-size: 14px;
+}
+/*写文章*/
+
+.topic-title{
+	width: 100%;
+	border: none;
+	outline: none;
+	background-color: #cecece;
+	padding: 3px;
+	font-size: 14px;
+	line-height: 2;
+	box-sizing: border-box;
+}
+.topic-content{
+	box-sizing: border-box;
+    width: 100%;
+    height: 220px;
+    border: 1px solid #ccc;
+    outline: none;
+    resize : none;
+    font-size: 14px;
+}
+#usage{
+	padding: 44px 15px;
+}
+#back-top{
+	display: none;
+	width: 30px;
+	height: 30px;
+	background-color: rgba(204,204,204,0.6);
+	color: #333;
+	position: fixed;
+	bottom: 10px;
+	right: 15px;
+	line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 5px;
+	z-index: 99999;
+}
+.topic-btn{
+	margin: 10px 0;
+}
+.modal-text{
+	display: none;
+}
+.panel.panel-left.panel-reveal{
+	background-color: #eee;
+}
