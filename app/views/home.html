@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=yes, email=yes" />
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>我的App</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="/stylesheets/framework7.ios
+.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="/stylesheets/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="/stylesheets/framework7-icons.css">
+    <!-- 富文本 -->
+    <!-- <link rel="stylesheet" href="stylesheets/medit.css"> -->
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="/stylesheets/usage.css">
+    <link rel="stylesheet" href="/stylesheets/my-app.css">
+</head>
+
+<body class="layout-white theme-black">
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <h2>我的App</h2>
+            <p id="login">
+                <% if (username) {%>
+                    欢迎你<%= username %><a href="#" id="sign-out">退出</a>
+                <%}else{%>
+                    <a href="/login.html" class="close-panel" id="login">登录</a>
+                <%}%>
+            </p>
+            <p><a href="#" data-popup=".popup-topic" class="close-panel open-popup">写文章</a></p>
+        </div>
+    </div>
+    <!-- Views-->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class-->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"><a href="#" data-panel="left" class="link icon-only open-panel"><i class="icon icon-bars"></i></a></div>
+                    <div class="center sliding">我的App</div>
+                </div>
+            </div>
+            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through">
+                <!-- Index Page-->
+                <div data-page="index" class="page">
+                    <div class="page-content pull-to-refresh-content">
+                        <!-- 默认的下拉刷新层 -->
+                        <div class="pull-to-refresh-layer">
+                            <div class="preloader"></div>
+                            <div class="pull-to-refresh-arrow"></div>
+                        </div>
+                        <div class="list-block media-list">
+                            <ul>
+                                <li>
+                                    <a href="/topic.html" class="item-link item-content">
+                                        <div class="item-media"><img src="#" width="50"></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Facebook</div>
+                                                <div class="item-after">17:14</div>
+                                            </div>
+                                            <div class="item-subtitle">New messages from John Doe</div>
+                                            <div class="item-text">Lorem ipsum dolor sit amet...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/topic/123.html" class="item-link item-content">
+                                        <div class="item-media"><img src="#" width="50"></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Facebook</div>
+                                                <div class="item-after">2016-11-24 17:15</div>
+                                            </div>
+                                            <div class="item-subtitle">New messages from John Doe</div>
+                                            <div class="item-text">Lorem ipsum dolor sit amet...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <p><a href="#" data-popup=".popup-topic" class="open-popup">写文章</a></p>
+                                    <!-- <a href="/usage.html">Markdown格式使用说明</a> -->
+                                    <a href="/cars.html">cars</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup popup-topic" id="new-topic">
+        <div class="content-block">
+            <h2>新文章</h2>
+            <p>标题</p>
+            <input type="text" name="topic-title" placeholder="文章标题" maxlength="22" class="topic-title" id="topic-title">
+            <p>文章内容</p>
+            <textarea name="topic-content" class="topic-content" id="topic-content" placeholder="文章内容支持Markdown格式"></textarea>
+            <p><a href="/usage.html" class="close-popup">*Markdown格式使用说明</a></p>
+            <div class="row topic-btn">
+                <div class="col-50">
+                    <a href="#" class="button button-big button-fill color-red close-popup" id="cancel-topic">取消发布</a>
+                </div>
+                <div class="col-50">
+                    <a href="#" class="button button-big button-fill color-blue" id="submit-topic">确定发布</a>
+                </div>
+            </div>
+            <div class="preview"></div>
+        </div>
+    </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="/javascripts/framework7.min.js"></script>
+    <!-- 富文本 -->
+    <!-- <script type="text/javascript" src="javascripts/medit.js"></script> -->
+    <!-- markdown -->
+    <script type="text/javascript" src="/javascripts/markdown.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="/javascripts/myapp.js"></script>
+
+</body>
+
+</html>
