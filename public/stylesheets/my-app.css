@@ -2,8 +2,15 @@
 	background-color: 
 }
 .item-after{
-	font-size: 14px;
+	font-size: 12px!important;
 }
+.item-inner{
+	overflow: hidden;
+}
+/*.back{
+	font-size: 14px;
+	padding: 0 5px!important;
+}*/
 /*topic*/
 #comment{
 	box-sizing: border-box;
@@ -16,6 +23,7 @@
 	outline: none;
 	background-color: #ececec;
 	margin-bottom: 0;
+	resize:none;
 }
 .comment-btn{
 	width: 80px;
@@ -113,7 +121,4 @@
 }
 .modal-text{
 	display: none;
-}
-.panel.panel-left.panel-reveal{
-	background-color: #eee;
 }

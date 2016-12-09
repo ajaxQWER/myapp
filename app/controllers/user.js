@@ -112,7 +112,8 @@ module.exports = {
 	signOut: function(req, res) {
 		req.session.user = null;
 		res.json({
-			success: true
+			success: true,
+			user: null
 		})
 	}
 

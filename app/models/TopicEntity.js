@@ -22,5 +22,23 @@ TopicEntity.prototype.add = function(data, callback) {
 	})
 }
 
+TopicEntity.prototype.findAll = function(callback) {
+	TopicModel.find({}, function(e, tiopics) {
+		callback(e, tiopics);
+	}).sort({
+		create_date: -1
+	})
+}
+
+TopicEntity.prototype.findById = function(id, callback) {
+	TopicModel.findOne({
+		_id: id
+	}, function(e, name) {
+		callback(e, name)
+	})
+}
+
+
+
 //Entity
 module.exports = new TopicEntity();
