@@ -14,22 +14,21 @@ module.exports = {
 				})
 			}
 			var newTopics = topics.map(function(topic) {
-					var id = topic._id;
-					var title = topic.title;
-					var author = topic.author;
-					var content = topic.content;
-					var ups = topic.ups;
-					var create_date = moment(topic.create_date).fromNow();
-					return {
-						id: id,
-						title: title,
-						author: author,
-						content: content,
-						ups: ups,
-						create_date: create_date
-					};
-				})
-				// res.end()
+				var id = topic._id;
+				var title = topic.title;
+				var author = topic.author;
+				var content = topic.content;
+				var ups = topic.ups;
+				var create_date = moment(topic.create_date).fromNow();
+				return {
+					id: id,
+					title: title,
+					author: author,
+					content: content,
+					ups: ups,
+					create_date: create_date
+				};
+			})
 			res.render('home', {
 				username: req.session.user,
 				topics: newTopics

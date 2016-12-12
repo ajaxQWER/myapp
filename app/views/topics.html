@@ -80,13 +80,12 @@
                         </div>
                         <div class="content-block">
                             <h1><%= topic.title %></h1>
-                            <p></p>
-                            <p>•发布于:<%= create_date %>•作者:<%= topic.author %></p>
+                            <p>•作者:<%= topic.author %>&nbsp;•发布于:<%= create_date %></p>
                             <%- topic.content %>
                         </div>
-                        <div class="content-block" id="comments">
+                        <div class="content-block">
                             <textarea name="comment" placeholder="添加评论" id="comment"></textarea>
-                            <a href="/posts" class="comment-btn">发表</a>
+                            <a href="#" id="comment-btn" data-id="<%= topic._id %>">发表</a>
                         </div>
                         <div class="content-block" id="comments-lists">
                             <div class="list-block media-list">
@@ -96,45 +95,13 @@
                                         <div class="list-content">
                                             <div class="list-info">
                                                 <div class="author-info">
-                                                    <img src="images/qq.jpg" width="40" class="author-img">
+                                                    <img src="#" width="40" class="author-img">
                                                     <span class="author-name">薛将军</span>
                                                 </div>
                                                 <div class="user-action">
-                                                    <a href="#" class="a-ups">赞</a>
-                                                    <span class="ups">+5</span>
-                                                    <a href="#" class="a-replay">回复</a>
-                                                </div>
-                                            </div>
-                                            <div class="replay-content">微环境后付款事发后的健身卡疯狂的的回到家时后疯狂的还得靠是返回的康师傅花多少开放独守空房独守空房的首付款的上课丰厚的是开放花多少快解放后定时开机费花多少开放独守空房独守空房的是开放花多少房间看看的说法肯定是和方会计师的飞海口市金东方红独守空房海口市的地方</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-content">
-                                            <div class="list-info">
-                                                <div class="author-info">
-                                                    <img src="images/qq.jpg" width="40" class="author-img">
-                                                    <span class="author-name">薛将军</span>
-                                                </div>
-                                                <div class="user-action">
-                                                    <a href="#" class="a-ups">赞</a>
-                                                    <span class="ups">+5</span>
-                                                    <a href="#" class="a-replay">回复</a>
-                                                </div>
-                                            </div>
-                                            <div class="replay-content">微环境后付款事发后的健身卡疯狂的的回到家时后疯狂的还得靠是返回的康师傅花多少开放独守空房独守空房的首付款的上课丰厚的是开放花多少快解放后定时开机费花多少开放独守空房独守空房的是开放花多少房间看看的说法肯定是和方会计师的飞海口市金东方红独守空房海口市的地方</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-content">
-                                            <div class="list-info">
-                                                <div class="author-info">
-                                                    <img src="images/qq.jpg" width="40" class="author-img">
-                                                    <span class="author-name">薛将军</span>
-                                                </div>
-                                                <div class="user-action">
-                                                    <a href="#" class="a-ups">赞</a>
-                                                    <span class="ups">+5</span>
-                                                    <a href="#" class="a-replay">回复</a>
+                                                    <a href="#" class="a-ups"><i class="material-icons">thumb_up</i></a>
+                                                    <span class="ups">5</span>
+                                                    <a href="#" class="a-replay"><i class="material-icons">reply</i></a>
                                                 </div>
                                             </div>
                                             <div class="replay-content">微环境后付款事发后的健身卡疯狂的的回到家时后疯狂的还得靠是返回的康师傅花多少开放独守空房独守空房的首付款的上课丰厚的是开放花多少快解放后定时开机费花多少开放独守空房独守空房的是开放花多少房间看看的说法肯定是和方会计师的飞海口市金东方红独守空房海口市的地方</div>
@@ -156,7 +123,7 @@
     <script type="text/javascript" src="/javascripts/markdown.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="/javascripts/public.js"></script>
-    <script type="text/javascript" src="/javascripts/myapp.js"></script>
+    <script type="text/javascript" src="/javascripts/topic.js"></script>
 </body>
 
 </html>

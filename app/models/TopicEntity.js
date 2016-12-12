@@ -37,7 +37,32 @@ TopicEntity.prototype.findById = function(id, callback) {
 		callback(e, name)
 	})
 }
+TopicEntity.prototype.replay = function(id, data, callback) {
+	// console.log(TopicModel.schema.Types)
+	TopicModel.update({
+		_id: id
+	}, {
+		$push: {
+			replay: {
+				// _id: TopicModel.Types.ObjectId,
+				replayer: data.replayer,
+				replayTime: data.time,
+				replayContent: data.content,
+				ups: {
+					type: Number,
+					default: 0
+				}
+			}
+		}
 
+	}, function(e) {
+		if (e) {
+			callback(e)
+		} else {
+			callback(null)
+		}
+	})
+}
 
 
 //Entity

@@ -46,11 +46,29 @@ module.exports = {
 					msg: '文章不存在'
 				})
 			}
-			console.log(topic)
 			res.render('topics', {
 				username: req.session.user,
 				create_date: moment(topic.create_date).format('YYYY/MM/DD HH:mm:ss'),
 				topic: topic
+			})
+		})
+	},
+	replay: function(req, res) {
+		var id = req.body.id;
+		var data = req.body;
+		console.log(data)
+		topic.replay(id, data, function(e) {
+			if (e) {
+				console.log(e);
+				res.json({
+					success: false,
+					error: e,
+					msg: "添加评论失败！"
+				})
+			}
+			res.json({
+				success: true,
+				msg: "添加评论成功！"
 			})
 		})
 	}

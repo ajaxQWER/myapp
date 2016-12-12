@@ -25,7 +25,7 @@
 	margin-bottom: 0;
 	resize:none;
 }
-.comment-btn{
+#comment-btn{
 	width: 80px;
 	float: right;
 	text-decoration: none;
@@ -119,6 +119,20 @@
 .topic-btn{
 	margin: 10px 0;
 }
-.modal-text{
+.modal{
+	width: 170px;
+	margin-left: -85px;
+}
+.modal-text,
+.modal-buttons{
 	display: none;
+}
+.modal-inner{
+	padding: 5px;
+}
+.modal-title{
+	text-align: center;
+}
+.material-icons{
+	font-size: 16px;
 }

@@ -22,15 +22,7 @@ var topicSchema = new Schema({
 		default: Date.now
 	},
 	content: String,
-	replay: {
-		replayer: String,
-		replayTime: Date,
-		replayContent: String
-	},
-	ups: {
-		type: Number,
-		default: 0
-	}
+	replay: []
 })
 
 //Model
