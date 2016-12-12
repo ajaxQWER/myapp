@@ -38,29 +38,23 @@ TopicEntity.prototype.findById = function(id, callback) {
 	})
 }
 TopicEntity.prototype.replay = function(id, data, callback) {
-	// console.log(TopicModel.schema.Types)
+	var replayId = new TopicModel().id;
+	var replayTime = new TopicModel().create_date;
 	TopicModel.update({
 		_id: id
 	}, {
 		$push: {
 			replay: {
-				// _id: TopicModel.Types.ObjectId,
+				replayId: replayId,
 				replayer: data.replayer,
-				replayTime: data.time,
+				replayTime: replayTime,
 				replayContent: data.content,
-				ups: {
-					type: Number,
-					default: 0
-				}
+				ups: Number
 			}
 		}
 
 	}, function(e) {
-		if (e) {
-			callback(e)
-		} else {
-			callback(null)
-		}
+		callback(e,replayId,replayTime)
 	})
 }
 

@@ -26,6 +26,15 @@ $$(document).on('click', '#sign-out', function() {
 	})
 })
 
+$$('#addTopic').on('click',function(){
+	var user = localStorage.getItem('user');
+	if(!user){
+		mainView.router.loadPage('/login.html');
+	}else{	
+		myApp.popup('.popup-topic');
+	}
+})
+
 $$('#cancel-topic').on('click', function() {
 	$$('.topic-title').val('');
 	$$('.topic-content').html('');

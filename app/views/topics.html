@@ -90,23 +90,26 @@
                         <div class="content-block" id="comments-lists">
                             <div class="list-block media-list">
                                 <span>评论列表</span>
-                                <ul>
-                                    <li>
-                                        <div class="list-content">
-                                            <div class="list-info">
-                                                <div class="author-info">
-                                                    <img src="#" width="40" class="author-img">
-                                                    <span class="author-name">薛将军</span>
+                                <ul id="comment-lists">
+                                    <% replays.forEach(function(replay){%>
+                                        <li>
+                                            <div class="list-content">
+                                                <div class="list-info">
+                                                    <div class="author-info">
+                                                        <img src="#" width="40" class="author-img">
+                                                        <span class="author-name"><%= replay.replayer %></span>
+                                                        <span class="replay-time"><%= replay.replayTime %></span>
+                                                    </div>
+                                                    <div class="user-action">
+                                                        <a href="#" class="a-ups" data-id="<%= replay.replayId %>"><i class="material-icons">thumb_up</i></a>
+                                                        <span class="ups"><%= replay.replayUps %></span>
+                                                        <a href="#" class="a-replay" data-id="<%= replay.replayId %>"><i class="material-icons">reply</i></a>
+                                                    </div>
                                                 </div>
-                                                <div class="user-action">
-                                                    <a href="#" class="a-ups"><i class="material-icons">thumb_up</i></a>
-                                                    <span class="ups">5</span>
-                                                    <a href="#" class="a-replay"><i class="material-icons">reply</i></a>
-                                                </div>
+                                                <div class="replay-content"><%= replay.replayContent %></div>
                                             </div>
-                                            <div class="replay-content">微环境后付款事发后的健身卡疯狂的的回到家时后疯狂的还得靠是返回的康师傅花多少开放独守空房独守空房的首付款的上课丰厚的是开放花多少快解放后定时开机费花多少开放独守空房独守空房的是开放花多少房间看看的说法肯定是和方会计师的飞海口市金东方红独守空房海口市的地方</div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    <%})%>
                                 </ul>
                             </div>
                         </div>

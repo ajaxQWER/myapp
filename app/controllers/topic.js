@@ -46,18 +46,31 @@ module.exports = {
 					msg: '文章不存在'
 				})
 			}
+			var replays = topic.replay.map(function(topic){
+				var replayId = topic.replayId;
+				var replayer = topic.replayer;
+				var replayTime = moment(topic.replayTime).fromNow();
+				var replayContent = topic.replayContent;
+				return {
+					replayId:replayId,
+					replayer:replayer,
+					replayTime:replayTime,
+					replayContent:replayContent
+				}
+			})
+			console.log(replays)
 			res.render('topics', {
 				username: req.session.user,
 				create_date: moment(topic.create_date).format('YYYY/MM/DD HH:mm:ss'),
-				topic: topic
+				topic: topic,
+				replays: replays
 			})
 		})
 	},
 	replay: function(req, res) {
 		var id = req.body.id;
 		var data = req.body;
-		console.log(data)
-		topic.replay(id, data, function(e) {
+		topic.replay(id, data, function(e,id,time) {
 			if (e) {
 				console.log(e);
 				res.json({
@@ -68,7 +81,13 @@ module.exports = {
 			}
 			res.json({
 				success: true,
-				msg: "添加评论成功！"
+				msg: "添加评论成功！",
+				data:{
+					replayId: id,
+					replayer: data.replayer,
+					content: data.content,
+					time: moment(time).fromNow()
+				}
 			})
 		})
 	}
