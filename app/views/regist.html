@@ -1,56 +1,133 @@
-<div class="navbar">
-    <div class="navbar-inner">
-        <div class="left sliding">
-            <a href="/" class="link icon-only">
-                <i class="icon icon-back"></i><span>Home</span>
-            </a>
-        </div>
-        <div class="center sliding">My App</div>
-    </div>
-</div>
-<div data-page="regist" class="page">
-    <div class="page-content login-screen-content">
-        <div class="login-screen-title">Sign Up</div>
-        <form id="regist-form">
-            <div class="list-block">
-                <ul>
-                    <li class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">用户名</div>
-                            <div class="item-input">
-                                <input type="text" name="username" placeholder="Your username">
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item-content">
-                        <div class="item-media"><i class="icon icon-form-password"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">密码</div>
-                            <div class="item-input">
-                                <input type="password" name="password" placeholder="Your password">
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item-content">
-                        <div class="item-media"><i class="icon icon-form-password"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">确认密码</div>
-                            <div class="item-input">
-                                <input type="password" name="confirm" placeholder="Confirm Your password">
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="list-block">
-                <ul>
-                    <li><a href="#" class="item-link list-button" id="reg-btn">立即注册</a></li>
-                </ul>
-                <div class="list-block-label">
-                    <p>已有账号?<a href="/login.html">马上登录</a></p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=yes, email=yes" />
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>注册</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="/stylesheets/framework7.material.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="/stylesheets/framework7.material.colors.min.css">
+    <link rel="stylesheet" href="/stylesheets/framework7-icons.css">
+    <!-- 富文本 -->
+    <!-- <link rel="stylesheet" href="stylesheets/medit.css"> -->
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="/stylesheets/my-app.css">
+</head>
+
+<body class="layout-white theme-teal">
+    <!-- Views-->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class-->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left sliding">
+                        <a class="link back"><i class="icon icon-back"></i></a>
+                    </div>
                 </div>
             </div>
-        </form>
+            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-fixed">
+                <!-- Index Page-->
+                <div data-page="index" class="page login-screen-content">
+                    <div class="page-content pull-to-refresh-content">
+                        <!-- 默认的下拉刷新层 -->
+                        <div class="pull-to-refresh-layer">
+                            <div class="preloader">
+                                <span class="preloader-inner">
+                                    <span class="preloader-inner-gap"></span>
+                                <span class="preloader-inner-left">
+                                        <span class="preloader-inner-half-circle"></span>
+                                </span>
+                                <span class="preloader-inner-right">
+                                        <span class="preloader-inner-half-circle"></span>
+                                </span>
+                                </span>
+                            </div>
+                            <div class="pull-to-refresh-arrow"></div>
+                        </div>
+                        <div class="login-screen-title">注册</div>
+                        <form id="regist-form">
+                            <div class="list-block input-list">
+                                <ul>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">用户名</div>
+                                            <div class="item-input">
+                                                <input type="text" name="username" placeholder="Your username">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">密码</div>
+                                            <div class="item-input">
+                                                <input type="password" name="password" placeholder="Your password">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">确认密码</div>
+                                            <div class="item-input">
+                                                <input type="password" name="confirm" placeholder="Confirm Your password">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content-block">
+                                <a class="button button-big" id="reg-btn">立即注册</a>
+                            </div>
+                            <div class="content-block">
+                                <div class="list-block-label">已有账号?<a href="/login.html">马上登录</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="/javascripts/framework7.min.js"></script>
+    <!-- 富文本 -->
+    <!-- <script type="text/javascript" src="javascripts/medit.js"></script> -->
+    <!-- markdown -->
+    <!-- <script type="text/javascript" src="/javascripts/markdown.min.js"></script> -->
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="/javascripts/public.js"></script>
+    <script type="text/javascript" src="/javascripts/regist.js"></script>
+</body>
+
+</html>

@@ -19,67 +19,7 @@ $$(document).on("pageInit", function(e) {
 	var page = e.detail.page;
 	switch (page.name) {
 		case "regist":
-			$$('#reg-btn').on('click', function() {
-				var formData = myApp.formToJSON('#regist-form');
-				if (!formData.username) {
-					myApp.alert('注册提示', '用户名为空');
-					return;
-				}
-				if (!formData.password) {
-					myApp.alert('注册提示', '密码为空');
-					return;
-				}
-				if (!formData.confirm) {
-					myApp.alert('注册提示', '密码未确认');
-					return;
-				}
-				if (formData.confirm != formData.password) {
-					myApp.alert('注册提示', '两次密码不一致');
-					return;
-				}
-				$$.ajax({
-					url: '/regist',
-					method: 'POST',
-					data: formData,
-					dataType: 'json',
-					success: function(data) {
-						if (data.success) {
-							myApp.showPreloader(data.msg);
-							setTimeout(function() {
-								mainView.router.loadPage('login.html');
-								myApp.hidePreloader();
-							}, 2000)
-						} else {
-							myApp.alert('注册提示', data.msg)
-						}
-					}
-				})
-			})
-			break;
-		case "login":
-			$$('#login-btn').on('click', function() {
-				var formData = myApp.formToJSON('#login-form');
-				$$.ajax({
-					url: '/login',
-					method: 'POST',
-					data: formData,
-					dataType: 'json',
-					success: function(data) {
-						if (data.success) {
-							console.log(data)
-							localStorage.setItem('user', data.user)
-							myApp.showPreloader(data.msg);
-							setTimeout(function() {
-								mainView.router.loadPage('/');
-								myApp.hidePreloader();
-							}, 2000);
-							getUser();
-						} else {
-							myApp.alert('登录提示', data.msg)
-						}
-					}
-				})
-			})
+
 			break;
 		case "cars":
 			var template = $$('#tpl-car').html();
@@ -96,6 +36,9 @@ $$(document).on("pageInit", function(e) {
 			$$('#carss').html(html)
 			break;
 	}
+})
+$$('.back').on('click', function() {
+	history.go(-1)
 })
 
 // 首页下拉刷新页面

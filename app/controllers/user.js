@@ -69,27 +69,27 @@ module.exports = {
 			if (!name) {
 				res.json({
 					success: false,
-					msg: "用户不存在！"
+					msg: "用户不存在"
 				})
 				return;
 			}
 			if (name.username !== username) {
 				res.json({
 					success: false,
-					msg: "用户名或密码错误！"
+					msg: "用户名或密码错误"
 				})
 				return;
 			} else if (name.password !== passwordByMd5) {
 				res.json({
 					success: false,
-					msg: "用户名或密码错误！"
+					msg: "用户名或密码错误"
 				})
 				return;
 			} else {
 				req.session.user = name.username;
 				res.json({
 					success: true,
-					msg: "登录成功!",
+					msg: "登录成功",
 					user: name.username
 				})
 			}

@@ -1,9 +1,12 @@
+// 由于F7是SPA，这里改成跳页面，所以所有关于view切换的都换成location.href
+// mainView.router.loadPage('/');
+
 //注意这里字符串的拼接，低版本webkit内核不支持`${}`这种写法
 function getUser() {
 	var username = localStorage.getItem('user');
 	var str = "";
 	if (username) {
-		str = "<p>欢迎你" + username + "<a href=\"#\" id=\"sign-out\">退出</a></p>"
+		str = "<p>欢迎你" + username + "<a id=\"sign-out\">退出</a></p>"
 	} else {
 		str = "<a href=\"/login.html\" class=\"close-panel\" id=\"login\">登录</a>"
 	}
@@ -11,7 +14,6 @@ function getUser() {
 }
 getUser();
 $$(document).on('click', '#sign-out', function() {
-	myApp.closePanel();
 	$$.ajax({
 		url: '/signOut',
 		method: 'GET',
@@ -19,18 +21,23 @@ $$(document).on('click', '#sign-out', function() {
 		success: function(data) {
 			console.log(data)
 			if (data.success) {
-				localStorage.removeItem('user');
-				setTimeout(getUser, 500)
+				myApp.showPreloader('退出成功');
+				setTimeout(function() {
+					myApp.hidePreloader();
+					localStorage.removeItem('user');
+					getUser();
+					myApp.closePanel();
+				}, 1500)
 			}
 		}
 	})
 })
 
-$$('#addTopic').on('click',function(){
+$$('#addTopic').on('click', function() {
 	var user = localStorage.getItem('user');
-	if(!user){
-		mainView.router.loadPage('/login.html');
-	}else{	
+	if (!user) {
+		location.href = "/login.html";
+	} else {
 		myApp.popup('.popup-topic');
 	}
 })
@@ -74,10 +81,10 @@ $$('#submit-topic').on('click', function() {
 				setTimeout(function() {
 					myApp.closeModal('.popup-topic')
 					myApp.hidePreloader();
+					location.href = "/";
+					$$('.topic-title').val('');
+					$$('.topic-content').html('');
 				}, 2000)
-				$$('.topic-title').val('');
-				$$('.topic-content').html('');
-				mainView.router.loadPage('/');
 			}
 		}
 	})
