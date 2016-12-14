@@ -11,6 +11,5 @@
 module.exports = {
 	port: '8810',
 	cookieSecret: 'general',
-	db: 'mongodb://ajax:xueshangke920305@ds131878.mlab.com:31878/xuejiangjun',
-	session: 'mongodb://ajax:xueshangke920305@ds133438.mlab.com:33438/xuejiangjunsession'
+	db: 'mongodb://ajax:xueshangke920305@ds131878.mlab.com:31878/xuejiangjun'
 };

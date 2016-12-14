@@ -30,9 +30,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static(path.join(__dirname, '/app/views')));
 
-//session
+//session url->uri
 var store = new MongoDBStore({
-	url: config.session,
+	uri: config.db,
 	collection: 'session'
 }, function(error) {
 	if (error) console.log(error);
