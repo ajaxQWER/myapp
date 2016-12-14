@@ -40,6 +40,7 @@ $$('#comment-btn').on('click', function() {
 				myApp.showPreloader('添加评论成功');
 				setTimeout(function() {
 					myApp.hidePreloader();
+					$$('#comment').val('');
 				}, 1500)
 				var str = "<li>" +
 					"<div class=\"list-content\">" +

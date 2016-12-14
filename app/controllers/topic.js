@@ -58,7 +58,6 @@ module.exports = {
 					replayContent:replayContent
 				}
 			})
-			console.log(replays)
 			res.render('topics', {
 				username: req.session.user,
 				create_date: moment(topic.create_date).format('YYYY/MM/DD HH:mm:ss'),
