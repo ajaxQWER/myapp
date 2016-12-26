@@ -20,13 +20,15 @@ module.exports = {
 				var content = topic.content;
 				var ups = topic.ups;
 				var create_date = moment(topic.create_date).fromNow();
+				var update_date = moment(topic.update_date).fromNow();
 				return {
 					id: id,
 					title: title,
 					author: author,
 					content: content,
 					ups: ups,
-					create_date: create_date
+					create_date: create_date,
+					update_date: update_date
 				};
 			})
 			res.render('home', {

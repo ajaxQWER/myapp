@@ -5,9 +5,7 @@
  */
 var TopicModel = require('./Topics');
 
-var TopicEntity = function() {
-
-};
+var TopicEntity = function() {};
 
 TopicEntity.prototype.add = function(data, callback) {
 	var topic = new TopicModel(data);
@@ -37,6 +35,17 @@ TopicEntity.prototype.findById = function(id, callback) {
 		callback(e, name)
 	})
 }
+
+TopicEntity.prototype.findByUser = function(user, callback) {
+	TopicModel.find({
+		author: user
+	}, function(e, name) {
+		callback(e, name)
+	}).sort({
+		create_date: -1
+	})
+}
+
 TopicEntity.prototype.replay = function(id, data, callback) {
 	var replayId = new TopicModel().id;
 	var replayTime = new TopicModel().create_date;
@@ -54,10 +63,23 @@ TopicEntity.prototype.replay = function(id, data, callback) {
 		}
 
 	}, function(e) {
-		callback(e,replayId,replayTime)
+		callback(e, replayId, replayTime)
 	})
 }
 
+TopicEntity.prototype.updateById = function(id, title, content, callback) {
+	TopicModel.update({
+		_id: id
+	}, {
+		$set: {
+			title: title,
+			content: content,
+			update_date: new TopicModel().update_date
+		}
+	}, function(e) {
+		callback(e)
+	})
+}
 
 //Entity
 module.exports = new TopicEntity();

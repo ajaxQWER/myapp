@@ -33,8 +33,7 @@
     <!-- Your app title -->
     <title>我的App</title>
     <!-- Path to Framework7 Library CSS, Material Theme -->
-    <link rel="stylesheet" href="/stylesheets/framework7.material
-.min.css">
+    <link rel="stylesheet" href="/stylesheets/framework7.material.min.css">
     <!-- Path to Framework7 color related styles, Material Theme -->
     <link rel="stylesheet" href="/stylesheets/framework7.material.colors.min.css">
     <link rel="stylesheet" href="/stylesheets/framework7-icons.css">
@@ -63,14 +62,17 @@
                     <div class="page-content">
                         <div class="content-block">
                             <h2>我的App</h2>
-                            <p id="login">
-                                <% if (username) {%>
-                                    欢迎你<%= username %><a href="#" id="sign-out">退出</a>
-                                <%}else{%>
-                                    <a href="/login.html" class="close-panel" id="login">登录</a>
-                                <%}%>
-                            </p>
-                            <p><a data-popup=".popup-topic" class="close-panel open-popup">写文章</a></p>
+                            <% if (username) {%>
+                                <p id="login">欢迎你<%= username %><a id="sign-out">退出</a></p>
+                                <div id="logined">
+                                    <p><a href="/publication.html">写文章</a></p>
+                                    <p><a href="/posts/list">文章列表</a></p>
+                                    <p><a class="">最新动态</a></p>
+                                    <p><a class="">个人中心</a></p>
+                                </div>
+                            <%}else{%>
+                                <p id="login"><a href="/login.html" class="close-panel" id="login">登录</a></p>
+                            <%}%>
                         </div>
                     </div>
                 </div>
@@ -93,7 +95,7 @@
                 <!-- Index Page-->
                 <div data-page="index" class="page">
                     <!-- Floating Action Button -->
-                    <a href="#" class="floating-button" id="addTopic">
+                    <a class="floating-button" href="/publication.html">
                         <i class="icon icon-plus"></i>
                     </a>
                     <div class="page-content pull-to-refresh-content">
@@ -116,12 +118,12 @@
                             <ul>
                                 <% topics.forEach(function(topic){ %>
                                     <li>
-                                        <a href="/topic/<%= topic.id%>" class="item-content">
-                                            <div class="item-media"><img src="#" width="50"></div>
+                                        <a href="/posts/topic/<%= topic.id%>" class="item-content">
+                                            <!-- <div class="item-media"><img src="#" width="50"></div> -->
                                             <div class="item-inner">
                                                 <div class="item-title-row">
                                                     <div class="item-title"><%=topic.title%></div>
-                                                    <div class="item-after"><%=topic.create_date%></div>
+                                                    <div class="item-after"><%=topic.update_date%></div>
                                                 </div>
                                             </div>
                                         </a>
@@ -134,25 +136,9 @@
             </div>
         </div>
     </div>
-    <div class="popup popup-topic" id="new-topic">
-        <div class="content-block">
-            <h2>新文章</h2>
-            <p>标题</p>
-            <input type="text" name="topic-title" placeholder="文章标题" maxlength="22" class="topic-title" id="topic-title">
-            <p>文章内容</p>
-            <div name="topic-content" class="topic-content" id="topic-content" placeholder="文章内容支持Markdown格式" contenteditable="true"></div>
-            <!-- <p><a href="/usage.html" class="close-popup">*Markdown格式使用说明</a></p> -->
-            <div class="buttons-row topic-btn">
-                    <a class="button button-big button-fill button-raised color-red close-popup" id="cancel-topic">取消发布</a>
-                    <a class="button button-big button-fill button-raised color-blue" id="submit-topic">确定发布</a>
-                </div>
-            </div>
-            <div class="preview"></div>
-        </div>
-    </div>
-    </div>
+    
     <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="/javascripts/framework7.min.js"></script>
+    <script src="/javascripts/framework7.min.js"></script>
     <!-- 富文本 -->
     <!-- <script type="text/javascript" src="javascripts/medit.js"></script> -->
     <!-- markdown -->

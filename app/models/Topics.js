@@ -21,6 +21,10 @@ var topicSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+	update_date: {
+		type: Date,
+		default: Date.now
+	},
 	content: String,
 	replay: []
 })

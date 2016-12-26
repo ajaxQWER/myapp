@@ -1,3 +1,13 @@
+// 安卓键盘挡住输入框
+if (/Android/gi.test(navigator.userAgent)) {
+	window.addEventListener('resize', function() {
+		if (document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA') {
+			window.setTimeout(function() {
+				document.activeElement.scrollIntoViewIfNeeded();
+			}, 0);
+		}
+	})
+}
 $$('#reg-btn').on('click', function() {
 	var formData = myApp.formToJSON('#regist-form');
 	if (!formData.username) {

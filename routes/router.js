@@ -4,10 +4,8 @@ var index = require('../app/controllers/index');
 var topic = require('../app/controllers/topic');
 var user = require('../app/controllers/user');
 
-
-router.get('/', index.init)
-	//查询具体文章
-router.get('/topic/:id', topic.findById);
+//首页初始化
+router.get('/', index.init);
 //添加文章
 router.post('/posts/addTopic', topic.add);
 //注册
@@ -20,5 +18,14 @@ router.get('/getSession', user.getSession);
 router.get('/signOut', user.signOut);
 //添加评论
 router.post('/replay', topic.replay);
+//文章列表
+router.get('/posts/list', topic.list);
+//查询具体文章
+router.get('/posts/topic/:id', topic.findById);
+//获取修改文章信息
+router.get('/posts/update/getInfo', topic.getInfo);
+//修改文章
+router.put('/posts/update', topic.update)
+
 
 module.exports = router;

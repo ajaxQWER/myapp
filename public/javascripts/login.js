@@ -1,3 +1,13 @@
+// 安卓键盘挡住输入框
+if (/Android/gi.test(navigator.userAgent)) {
+	window.addEventListener('resize', function() {
+		if (document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA') {
+			window.setTimeout(function() {
+				document.activeElement.scrollIntoViewIfNeeded();
+			}, 0);
+		}
+	})
+}
 $$('#login-btn').on('click', function() {
 	var formData = myApp.formToJSON('#login-form');
 	if (!formData.username) {
@@ -21,8 +31,7 @@ $$('#login-btn').on('click', function() {
 		dataType: 'json',
 		success: function(data) {
 			if (data.success) {
-				console.log(data)
-				localStorage.setItem('user', data.user)
+				localStorage.setItem('user', data.user);
 				myApp.showPreloader(data.msg);
 				setTimeout(function() {
 					location.href = "/";
