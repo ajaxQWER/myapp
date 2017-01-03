@@ -124,7 +124,6 @@ $$(document).on('click','#replay-comment',function(){
 			content:'<span class="quote">回复'+author+':'+replay+'</span><br /><span class="replays">'+content+'</span>'
 		},
 		dataType: 'json',
-<<<<<<< HEAD
 		success:function(data){
 			console.log(data)
 			if (data.success) {
@@ -135,36 +134,6 @@ $$(document).on('click','#replay-comment',function(){
                     location.reload();
                 }, 1500);
             }
-=======
-		success: function(replay) {
-			if (replay.success) {
-				myApp.showPreloader('添加评论成功');
-				setTimeout(function() {
-					myApp.hidePreloader();
-					$$('#comment').val('');
-				}, 1500)
-				var str = "<li>" +
-					"<div class=\"list-content\">" +
-					"<div class=\"list-info\">" +
-					"<div class=\"author-info\">" +
-					"<img src=\"#\" width=\"40\" class=\"author-img\">" +
-					"<span class=\"author-name\">" + replay.data.replayer + "</span>" +
-					"<span class=\"replay-time\">" + replay.data.time + "</span>" +
-					"</div>" +
-					"<div class=\"user-action\">" +
-					"<a class=\"a-ups\" data-id=\"" + replay.data.replayId + "\"><i class=\"material-icons\">thumb_up</i></a>" +
-					"<span class=\"ups\"></span>" +
-					"<a class=\"a-replay\" data-id=\"" + replay.data.replayId + "\"><i class=\"material-icons\">reply</i></a>" +
-					"</div>" +
-					"</div>" +
-					"<div class=\"replay-content\">" + replay.data.content + "</div>" +
-					"</div>" +
-					"</li>";
-				setTimeout(function() {
-					$$('#comment-lists').append(str);
-				}, 2000)
-			}
->>>>>>> 8c640c8352984eb93cd09794a79161d0b0580e0d
 		}
 	})
 })
