@@ -90,22 +90,22 @@
                             <div class="list-block media-list">
                                 <span>评论列表</span>
                                 <ul id="comment-lists">
-                                    <% replays.forEach(function(replay){%>
+                                    <% replays.forEach(function(replay,index){%>
                                         <li>
                                             <div class="list-content">
                                                 <div class="list-info">
                                                     <div class="author-info">
-                                                        <img src="#" width="40" class="author-img">
+                                                        <!-- <img src="#" width="40" class="author-img"> -->
                                                         <span class="author-name"><%= replay.replayer %></span>
                                                         <span class="replay-time"><%= replay.replayTime %></span>
                                                     </div>
                                                     <div class="user-action">
-                                                        <a class="a-ups" data-id="<%= replay.replayId %>"><i class="material-icons">thumb_up</i></a>
-                                                        <span class="ups"><%= replay.replayUps %></span>
-                                                        <a class="a-replay" data-id="<%= replay.replayId %>"><i class="material-icons">reply</i></a>
+                                                        <a class="a-ups" data-id="<%= replay.replayId %>" data-index="<%= index %>">赞</a>
+                                                        <span class="ups"><%= replay.ups %></span>
+                                                        <a class="a-replay" data-id="<%= replay.replayId %>" data-author="<%= replay.replayer %>">回复</a>
                                                     </div>
                                                 </div>
-                                                <div class="replay-content"><%= replay.replayContent %></div>
+                                                <div class="replay-content" id="<%= replay.replayId %>"><%- replay.replayContent %></div>
                                             </div>
                                         </li>
                                     <%})%>

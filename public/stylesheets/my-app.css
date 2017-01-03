@@ -12,7 +12,8 @@
 	padding: 0 5px!important;
 }*/
 /*topic*/
-#comment{
+#comment,
+#replay-text{
 	box-sizing: border-box;
 	max-height: 50px;
 	min-height: 50px;
@@ -54,6 +55,7 @@
 .a-ups{
 	display: inline-block;
 	margin-left: 5px;
+	font-size: 14px;
 }
 .list-content{
 	padding: 10px 0;
@@ -144,8 +146,12 @@
     font-size: 12px;
     margin-left: 5px;
 }
-/*文章列表*/
-
-#delete{
-	margin-left: 10px;
+.ups{
+	font-size: 14px;
+}
+.quote{
+	color: #999999;
+}
+.replays{
+	margin-left: 2em;
 }

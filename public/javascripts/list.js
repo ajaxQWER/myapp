@@ -1,6 +1,15 @@
+$$('#publication').on('click', function() {
+	if (!localStorage.getItem('user')) {
+		location.href = "/login.html"
+	} else {
+		location.href = "/publication.html"
+	}
+})
+
+
 //修改文章
-var id = $$('#update').data('id');
-$$('#update').on('click', function() {
+$$('.update').on('click', function() {
+	var id = $$(this).data('id');
 	$$.ajax({
 		url: '/posts/update/getInfo?id=' + id,
 		method: 'GET',
@@ -34,7 +43,7 @@ $$('#update-btn').on('click', function() {
 		data: {
 			id: id,
 			title: $$('#update-title').val(),
-			content: $$('#update-content').val()
+			content: $$('#update-content').val().replace(/\n/g, '<br>')
 		},
 		success: function(data) {
 			console.log(data)
@@ -45,4 +54,34 @@ $$('#update-btn').on('click', function() {
 			myApp.closeModal('.popup-update')
 		}
 	})
+});
+
+//删除文章
+
+$$('.delete').click(function() {
+	var id = $$(this).data('id');
+	myApp.confirm('确定要删除文章吗?', '删除文章', function() {
+			$$.ajax({
+				url: '/posts/delete',
+				method: 'DELETE',
+				data: {
+					id: id
+				},
+				dataType: 'json',
+				success: function(data) {
+					console.log(data)
+					if (data.success) {
+						myApp.showPreloader(data.msg);
+						setTimeout(function() {
+							myApp.hidePreloader();
+							location.reload();
+						}, 1500)
+					}
+
+				}
+			})
+		},
+		function() {
+			console.log('取消删除')
+		});
 })

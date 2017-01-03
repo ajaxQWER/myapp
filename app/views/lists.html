@@ -41,7 +41,7 @@
     <!-- <link rel="stylesheet" href="stylesheets/medit.css"> -->
     <!-- Path to your custom app styles-->
     <!-- <link rel="stylesheet" href="/stylesheets/usage.css"> -->
-    <link rel="stylesheet" href="/stylesheets/my-app.css">
+    <link rel="stylesheet" href="/stylesheets/lists.css">
 </head>
 
 <body class="layout-white theme-teal">
@@ -61,22 +61,7 @@
             <div class="pages navbar-fixed">
                 <!-- Index Page-->
                 <div data-page="index" class="page">
-                    <div class="page-content pull-to-refresh-content">
-                        <!-- 默认的下拉刷新层 -->
-                        <div class="pull-to-refresh-layer">
-                            <div class="preloader">
-                                <span class="preloader-inner">
-                                    <span class="preloader-inner-gap"></span>
-                                <span class="preloader-inner-left">
-                                        <span class="preloader-inner-half-circle"></span>
-                                </span>
-                                <span class="preloader-inner-right">
-                                        <span class="preloader-inner-half-circle"></span>
-                                </span>
-                                </span>
-                            </div>
-                            <div class="pull-to-refresh-arrow"></div>
-                        </div>
+                    <div class="page-content">
                         <div class="content-block-title">我发表的文章</div>
                         <div class="list-block">
                             <ul>
@@ -88,8 +73,8 @@
                                                     <a  href="/posts/topic/<%= topic._id%>"><%= topic.title %></a>
                                                 </div>
                                                 <div class="item-after">
-                                                    <a id="update" data-id="<%= topic._id%>">修改</a>
-                                                    <a id="delete" data-id="<%= topic._id%>">删除</a>
+                                                    <a class="update" data-id="<%= topic._id%>">修改</a>
+                                                    <a class="delete" data-id="<%= topic._id%>">删除</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -99,7 +84,7 @@
                                         <div class="item-inner">
                                             <div class="item-title">没有发表过文章</div>
                                             <div class="item-after">
-                                                <a href="/publication.html">立即发表</a>
+                                                <a id="publication">立即发表</a>
                                             </div>
                                         </div>
                                     </li>
@@ -117,9 +102,8 @@
             <p>标题</p>
             <input type="text" name="topic-title" placeholder="文章标题" maxlength="22" class="topic-title" id="update-title">
             <p>文章内容</p>
-            <!-- <div name="topic-content" class="topic-content" id="update-content" contenteditable="true"></div> -->
-            <textarea name="" class="topic-content" id="update-content"></textarea>
-            <p><a href="https://simplemde.com/markdown-guide">*Markdown格式使用说明</a></p>
+            <textarea class="topic-content" id="update-content"></textarea>
+            <!-- <p><a href="https://simplemde.com/markdown-guide">*Markdown格式使用说明</a></p> -->
             <div class="buttons-row topic-btn">
                 <a class="button button-big button-fill button-raised color-red close-popup" id="cancel">取消修改</a>
                 <a class="button button-big button-fill button-raised color-blue" id="update-btn">确定修改</a>

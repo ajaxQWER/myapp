@@ -58,7 +58,7 @@ TopicEntity.prototype.replay = function(id, data, callback) {
 				replayer: data.replayer,
 				replayTime: replayTime,
 				replayContent: data.content,
-				ups: Number
+				ups: []
 			}
 		}
 
@@ -79,6 +79,41 @@ TopicEntity.prototype.updateById = function(id, title, content, callback) {
 	}, function(e) {
 		callback(e)
 	})
+}
+
+TopicEntity.prototype.deleteById = function(id, callback) {
+	TopicModel.remove({
+		_id: id
+	}, function(e) {
+		callback(e)
+	})
+}
+
+TopicEntity.prototype.findUper = function(id, user, callback) {
+	TopicModel.find({
+		"replay.replayId": id,
+		"replay.ups.uper": user
+	}, function(e, name) {
+		callback(e, name)
+	})
+}
+
+TopicEntity.prototype.ups = function(id, uper, callback) {
+	TopicModel.update({
+		"replay.replayId": id
+	}, {
+		$addToSet: {
+			"replay.$.ups": {
+				uper: uper
+			}
+		}
+	}, function(e, msg) {
+		callback(e, msg)
+	})
+}
+
+TopicEntity.prototype.show = function(){
+	console.log("!!!!!!!!!!!!")
 }
 
 //Entity

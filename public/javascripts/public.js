@@ -3,7 +3,9 @@ var myApp = new Framework7({
     material: true,
     animateNavBackIcon: true,
     cache: false,
-    router: false
+    router: false,
+    modalButtonOk: '确定',
+    modalButtonCancel: '取消'
 });
 
 // Export selectors engine

@@ -36,6 +36,15 @@ $$(document).on('click', '#sign-out', function() {
 		}
 	})
 });
+
+$$('#publication').on('click', function() {
+	if (!localStorage.getItem('user')) {
+		location.href = "/login.html"
+	} else {
+		location.href = "/publication.html"
+	}
+})
+
 // //写文章
 // $$('#addTopic').on('click', function() {
 // 	var user = localStorage.getItem('user');
